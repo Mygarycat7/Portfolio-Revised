@@ -1,67 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:400');
+/* IMPORTS */
+
+
+
+
 
 
 /* MAIN */
 
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    min-height: 100vh;
-    background-color: hsl(0, 0%, 95%);
+  min-height: 100vh;
+  background: #323251;
 }
 
 
-/* NAVIGATION BAR */
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1% 2%;
-    background-color: rgb(80, 104, 190);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
+/* NAVIGATION BAR (About & Contact) */
 
-.navbar a, h1{
-    font-size: 19.5px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    margin-left: 30px;
-    transition: color 0.3s ease 0s;
-}
 
-.navbar a:hover {
-    color:hsl(140, 100%, 80%);
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  padding: 1% 2%;
+  background-color: rgba(40, 40, 40, 0);
+  justify-content: space-between;
+  align-items: center;
 }
 
 
-.home .navbar a#active {
-    border: 4px solid hsl(227, 46%, 43%);
-    padding: 5px;
-    background: hsl(227, 46%, 63%);
-    border-radius: 15px;
+.navbar {
+  display: block;
+  float: right;
 }
 
-.favorites .navbar a#active {
-    border: 4px solid hsl(227, 46%, 43%);
-    padding: 5px;
-    background: hsl(227, 46%, 63%);
-    border-radius: 15px;
+.navbar a {
+  font-size: 19.5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 30px;
+  transition: color 0.3s ease 0s;
 }
 
-.support .navbar a#active {
-    border: 4px solid hsl(227, 46%, 43%);
-    padding: 5px;
-    background: hsl(227, 46%, 63%);
-    border-radius: 15px;
+
+
+/* BACKGROUND */
+
+
+.container {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.bubbles {
+  position: absolute;
+  display: flex;
+}
+
+.bubbles span {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #00bbff;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #0088ba44, 0 0 50px #00bbff, 0 0 100px #00bbff;
+  animation: animate 10s linear infinite;
+  animation-duration: calc(250s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+  background: #00ffc8;
+  box-shadow: 0 0 0 10px #00ffc844, 0 0 50px #00ffc8, 0 0 100px #00ffc8;
+}
+
+
+
+/* HOME LINKS */
+
+
+.linksContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links {
+  display: grid;
+  position: absolute;
+  background: white;
+  min-width: 30%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 0 50px black;
+  padding: 10px;
+}
+
+.links button {
+  position: relative;
+  margin: 15px;
+  background: transparent;
+  border: solid;
+  border-radius: 50px;
+  font-size: 25px;
+  min-width: 500px;
+  transition: all 0.3s ease 0s;
+}
+
+
+
+/* HOVER */
+
+
+.links button:hover{
+  background: #6dd8ff44;
+  box-shadow: 3px 3px 10px #6dd8ff44,
+  0 0 25px #6dd8ff99,
+  0 0 50px #6dd8ff99;
+  cursor: pointer;
+}
+
+
+
+/* ANIMATIONS */
+
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0.25);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
 }
